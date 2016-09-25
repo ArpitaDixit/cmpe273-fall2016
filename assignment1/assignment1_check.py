@@ -83,6 +83,8 @@ def submit_to_lambda():
                        'put_returns_202'] + user_log['put_changes_values_appropriately'] + user_log[
                        'delete_returns_204'] + user_log['get_after_delete_returns_404']
     user_log['total_points'] = total_points
+    import hashlib
+    user_log['hash'] = hashlib.md5(open('assignment1_check.py', 'rb').read()).hexdigest()
     print "Ending the test script. Grade: %s/10" % total_points
     data_to_send = {
         "Item": user_log,
