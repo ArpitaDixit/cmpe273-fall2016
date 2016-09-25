@@ -116,6 +116,8 @@ try:
 except KeyError:
     print "Id not returned on POST."
     exit(0)
+except TypeError:
+    invalid_id = id_for_object + str(339)
 for key in object_to_post.keys():
     if key not in json_response.keys():
         print "Key %s not found in response " % key
